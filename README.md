@@ -35,3 +35,8 @@ Part 6: Test Suite
 - test caching system
 - test database tables
 - test classes
+
+
+Part 7: Miscellaneous
+- requirements.txt
+- add secret data file(without my key)
