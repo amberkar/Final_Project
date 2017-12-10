@@ -7,7 +7,7 @@ Type the following command to run the program:
 ```python3 final_project_code.py```
 
 * The requirement for the code to work is [Python 3](https://www.python.org/downloads/)
-* The whole ```code.py``` file is divided in to different sections
+* The whole ```final_project_code.py``` file is divided in to different sections
 * Database name is built-in to the code, if you wish to change the database name, change it in the line number ```22```
 * The following are needed to run the program:
 	1. ```Eventbrite API Account( more on this later)```
@@ -50,7 +50,7 @@ Running the code performs the following operations in this order
 
 1. Initially it checks if there exists a cached data of all the three tables, if Yes then the data from the cache is loaded if it is not expired according to the token value. If the token is expired or cache is absent, then it fetched the data using multiple API calls to the endpoint of Eventbrite.(NOTE the caching system utilized was adapter from the Caching system is adapted from oauth1_twitter_caching.py that was shown in class additionally the OAuth2 system is adapted from facebook_oauth.py that was shown in class as well)
 2. Later the program creates the respective tables in the databases and inserts any new data that needs to be inserted and creates as and when required.
-3. Finally the events the retrieved by a join and group by of categories and formats individually ans displyed on the console in a systematic format. Many more ways of functions can be written to get the data in other desired formats and scope for improvement of the system is always available in this case.
+3. Finally the events the retrieved by a join and group by of categories and formats individually and displayed on the console in a systematic format. Many more ways of functions can be written to get the data in other desired formats and scope for improvement of the system is always available in this case.
 4. Also a two pie charts will be generated if the requirements for [Plotly](https://plot.ly/python/) are met. The account needs to be setup online and will be outlined briefly below.
 
 In the end when you run final_project_code.py you will receive the below output:
