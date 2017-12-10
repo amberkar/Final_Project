@@ -8,8 +8,8 @@ import webbrowser
 import sqlite3
 from sqlite3 import *
 import plotly
-# import plotly as py
-# import plotly.graph_objs as go
+import plotly.plotly as py
+import plotly.graph_objs as go
 
 APP_KEY = app_key
 CLIENT_SECRET = client_secret
@@ -279,6 +279,26 @@ class Database:
                 break
         return
 
+    def group_by_formats(self):
+        self.cursor.execute('''SELECT format_id, name FROM Formats''')
+        all_formats = self.cursor.fetchall()
+        formats = {}
+        for eachf in all_formats:
+            self.cursor.execute('SELECT e.name FROM Events e JOIN Formats f on e.format_id = f.format_id WHERE f.format_id = ' + eachf[0])
+            events_format = self.cursor.fetchall()
+            formats[eachf[1]] = [x[0] for x in events_format]
+        return formats
+
+    def group_by_categories(self):
+        self.cursor.execute('''SELECT category_id, name FROM Categories''')
+        all_categories = self.cursor.fetchall()
+        categories = {}
+        for eachc in all_categories:
+            self.cursor.execute('SELECT e.name FROM Events e JOIN Categories c on e.category_id = c.category_id WHERE c.category_id = ' + eachc[0])
+            events_category = self.cursor.fetchall()
+            categories[eachc[1]] = [x[0] for x in events_category]
+        return categories
+
 
 events_data = get_data_from_api(EVENTS_REQUEST_URL, None, {}, EVENTS_CACHE_DICTION, EVENTS_CACHE_FNAME, 7)
 formats_data = get_data_from_api(FORMATS_REQUEST_URL, None, {}, FORMATS_CACHE_DICTION, FORMATS_CACHE_FNAME, 7)
@@ -289,12 +309,71 @@ db = Database(DATABASE_NAME)
 db.create_events_table(events_data)
 db.create_formats_table(formats_data)
 db.create_categories_table(categories_data)
-print(db)
-print('Events' in db)
+# print(db)
+# print('Events' in db)
+
+format_events_ = db.group_by_formats()
+category_events_ = db.group_by_categories()
 
 
+def show_events_by_formats(format_events):
+    string = '------------------------------------\n'
+    string += 'List of all formats and its events:\n'
+    out_ctr = 1
+    for each in format_events:
+        value = format_events[each]
+        if len(value) > 0:
+            string += str(out_ctr) + '. ' + each + '\n'
+            inr_ctr = 1
+            for event in value:
+                string += '\t' + str(inr_ctr) + '. ' + event + '\n'
+                inr_ctr += 1
+            out_ctr += 1
+    print(string)
 
 
+def show_events_by_categories(category_events):
+    string = '------------------------------------\n'
+    string += 'List of all categories and its events:\n'
+    out_ctr = 1
+    for each in category_events:
+        value = category_events[each]
+        if len(value) > 0:
+            string += str(out_ctr) + '. ' + each + '\n'
+            inr_ctr = 1
+            for event in value:
+                string += '\t' + str(inr_ctr) + '. ' + event + '\n'
+                inr_ctr += 1
+            out_ctr += 1
+    print(string)
+
+def plot_events_by_formats(format_events):
+    labels = []
+    values = []
+    for each in format_events:
+        labels.append(each)
+        value = format_events[each]
+        values.append(len(value))
+
+    trace = go.Pie(labels=labels, values=values)
+    py.plot([trace], filename='Events by Formats')
+
+def plot_events_by_categories(category_events):
+    labels = []
+    values = []
+    for each in category_events:
+        labels.append(each)
+        value = category_events[each]
+        values.append(len(value))
+
+    trace = go.Pie(labels=labels, values=values)
+    py.plot([trace], filename='Events by Categories')
 
 
-
+show_events_by_formats(format_events_)
+show_events_by_categories(category_events_)
+try:
+    plot_events_by_formats(format_events_)
+    plot_events_by_categories(category_events_)
+except:
+    print("Error in using plotly, Please follow instructions in Readme.md")
