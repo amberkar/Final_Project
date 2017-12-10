@@ -9,12 +9,11 @@ Type the following command to run the program:
 * The requirement for the code to work is [Python 3](https://www.python.org/downloads/)
 * The whole ```code.py``` file is divided in to different sections
 * Database name is built-in to the code, if you wish to change the database name, change it in the line number ```22```
-* The following modules needed to be installed in the python virtual environment
-	1. ```requests_oauthlib```
-	2. ```sqlite3```
-	3. ```plotly (more on this later)```
-* All the necessary constants are predefined at immediately after python imports.
-* The requirements for the project are generated in the ```requirements.txt``` file generated using ```pipreqs```
+* The following are needed to run the program:
+	1. ```Eventbrite API Account( more on this later)```
+	2. ```Application to view sqlite3 databases I recommend DB Browser for SQLite```
+	3. ```Account for plotly (more on this later)```
+* The requirements for the project are generated in the ```requirements.txt``` file you can create a virtual enviornment and install the given project requirements.
 
 ## Evenbrite API Details
 * If you do not already have an eventbrite account you will need one to get your own app key and client_secret, this can be gathered by following the below link https://www.eventbrite.com/myaccount/apps/new/
