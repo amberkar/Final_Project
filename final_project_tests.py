@@ -1,15 +1,9 @@
 import unittest
 from final_project_code import *
 
-class Test_caching(unittest.TestCase):
+class Test_events_caching(unittest.TestCase):
   def setUp(self):
     self.cache_file = open("events_cache_contents.json", encoding='utf-8-sig')
-
-  def setUp(self):
-    self.cache_file = open("formats_cache_contents.json", encoding='utf-8-sig')
-
-  def setUp(self):
-    self.cache_file = open("categories_cache_contents.json", encoding='utf-8-sig')
 
   def test_cache_file(self):
     read = self.cache_file.read()
@@ -20,7 +14,6 @@ class Test_caching(unittest.TestCase):
 
   def tearDown(self):
     self.cache_file.close()
-
 
 
 if __name__ == "__main__":
