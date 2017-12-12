@@ -1,5 +1,25 @@
 import unittest
-from code import *
+from final_project_code import *
+
+class Test_caching(unittest.TestCase):
+  def setUp(self):
+    self.cache_file = open("events_cache_contents.json", encoding='utf-8-sig')
+
+  def setUp(self):
+    self.cache_file = open("formats_cache_contents.json", encoding='utf-8-sig')
+
+  def setUp(self):
+    self.cache_file = open("categories_cache_contents.json", encoding='utf-8-sig')
+
+  def test_cache_file(self):
+    read = self.cache_file.read()
+    self.assertTrue(read)
+    self.assertIsInstance(read, str)
+    cache_diction = json.loads(read)
+    self.assertIsInstance(cache_diction, dict)
+
+  def tearDown(self):
+    self.cache_file.close()
 
 
 
