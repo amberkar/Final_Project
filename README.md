@@ -1,4 +1,4 @@
-# Eventbrite Categories
+# Eventbrite Categories/formats
 
 I utilized the Eventbrite API to visualize the types of events in terms of categories Eventbrite offers on a daily basis. When the program is run successfully multiple API calls are made to Eventbrite to gather database information regarding events, formats, and categories. Then, a join query is made to establish the type( categories) of events that are occurring for that day as well as the format for the event. Finally the information gathered is visualized in two pie charts to show the categories of events occurring for that day and their given format.
 
