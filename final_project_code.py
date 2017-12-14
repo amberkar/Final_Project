@@ -8,6 +8,7 @@ import webbrowser
 import sqlite3
 from sqlite3 import *
 import plotly
+import plotlyconfig
 import plotly.plotly as py
 import plotly.graph_objs as go
 
@@ -346,6 +347,8 @@ def show_events_by_categories(category_events):
                 inr_ctr += 1
             out_ctr += 1
     print(string)
+################# Plot.ly################
+plotly.tools.set_credentials_file(username=plotlyconfig.username, api_key=plotlyconfig.api_key)
 
 def plot_events_by_formats(format_events):
     labels = []
@@ -370,12 +373,10 @@ def plot_events_by_categories(category_events):
     py.plot([trace], filename='Events by Categories')
 
 
-
-
 show_events_by_formats(format_events_)
 show_events_by_categories(category_events_)
 try:
     plot_events_by_formats(format_events_)
     plot_events_by_categories(category_events_)
 except:
-    print("Error in using plotly, Please follow instructions in Readme.md")
+     print("Error in using plotly, Please follow instructions in Readme.md")
