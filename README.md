@@ -74,4 +74,6 @@ In the end when you run final_project_code.py you will receive the below output:
 
 	```python3```
 
-* Follow the instructions in the above plot.ly link and create add your credentials to the file "secret_data".
+* Follow the instructions in the above plot.ly link and create add your credentials to the file "plotlyconfig.py".
+
+* Examples of the two visuals can been view by opening Events by Categories.png and Events by Formats.png. These two pie charts visualize the given information via plot.ly. 
