@@ -370,6 +370,8 @@ def plot_events_by_categories(category_events):
     py.plot([trace], filename='Events by Categories')
 
 
+
+
 show_events_by_formats(format_events_)
 show_events_by_categories(category_events_)
 try:
@@ -377,4 +379,3 @@ try:
     plot_events_by_categories(category_events_)
 except:
     print("Error in using plotly, Please follow instructions in Readme.md")
-    
