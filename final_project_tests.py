@@ -110,6 +110,15 @@ class Data_Test(unittest.TestCase):
         self.values = []
         self.assertFalse('21323341234' in self.values)
 
+    def test_read_from_table(self):
+        self.all_rows = []
+        self.assertTrue(isinstance(self.all_rows, list))
+
+    def test_get_event_from_format(self):
+        self.all_rows = []
+        self.assertFalse(isinstance(self.all_rows, str))
+
+
 class SQL_Test(unittest.TestCase):
     def setUp(self):
         sql = 'SELECT * FROM "sqlite_master"'
