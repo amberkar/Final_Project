@@ -57,7 +57,7 @@ class Test_Token_Data(unittest.TestCase):
   def tearDown(self):
     self.token_file.close()
 
-class Database_Test(unittest.TestCase):
+class Data_Test(unittest.TestCase):
     def setUp(self):
         try:
             with open('events_cache_contents.json', 'r') as f:
@@ -81,6 +81,7 @@ class Database_Test(unittest.TestCase):
         except:
             token_dict = {}
 
+
     def test_formats_table(self):
         self.data = formats_data['formats']
         self.assertTrue(isinstance(self.data, list))
@@ -92,6 +93,11 @@ class Database_Test(unittest.TestCase):
     def test_events_table(self):
         self.data3 = events_data['events']
         self.assertTrue(isinstance(self.data3, list))
+
+    def test_sql(self):
+        self.assertTrue(type(self.data) == type([]), "Testing that the query has returned a list.")
+
+
 
 
 
