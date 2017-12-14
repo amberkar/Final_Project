@@ -94,12 +94,6 @@ class Data_Test(unittest.TestCase):
         self.data3 = events_data['events']
         self.assertTrue(isinstance(self.data3, list))
 
-    def test_sql(self):
-        self.assertTrue(type(self.data) == type([]), "Testing that the query has returned a list.")
-
-
-
-
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
