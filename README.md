@@ -1,5 +1,6 @@
-# Eventbrite Databases in Python
-The project is to showcase skills gathered during my semester in SI-507! I utilized the Eventbrite API to visualize the types( categories_) of events Eventbrite offers.
+# Eventbrite Categories
+
+I utilized the Eventbrite API to visualize the types of events in terms of categories Eventbrite offers on a daily basis. When the program is run successfully multiple API calls are made to Eventbrite to gather database information regarding events, formats, and categories. Then, a join query is made to establish the type( categories) of events that are occurring for that day as well as the format for the event. Finally the information gathered is visualized in two pie charts to show the categories of events occurring for that day and their given format.
 
 ## Usage
 Type the following command to run the program:
@@ -14,6 +15,8 @@ Type the following command to run the program:
 	2. ```Application to view sqlite3 databases I recommend DB Browser for SQLite```
 	3. ```Account for plotly (more on this later)```
 * The requirements for the project are generated in the ```requirements.txt``` file you can create a virtual enviornment and install the given project requirements.
+
+
 
 ## Evenbrite API Details
 * If you do not already have an eventbrite account you will need one to get your own app key and client_secret, this can be gathered by following the below link https://www.eventbrite.com/myaccount/apps/new/
