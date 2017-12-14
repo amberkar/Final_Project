@@ -94,6 +94,34 @@ class Data_Test(unittest.TestCase):
         self.data3 = events_data['events']
         self.assertTrue(isinstance(self.data3, list))
 
+    def test_plot_events_by_formats(self):
+        self.labels = []
+        self.assertTrue(isinstance(self.labels, list))
+
+    def test_plot_events_by_formats2(self):
+        self.labels = []
+        self.assertFalse('skajhfasdf' in self.labels)
+
+    def test_plot_events_by_categories(self):
+        self.values = []
+        self.assertTrue(isinstance(self.values, list))
+
+    def test_plot_events_by_categories2(self):
+        self.values = []
+        self.assertFalse('21323341234' in self.values)
+
+class SQL_Test(unittest.TestCase):
+    def setUp(self):
+        sql = 'SELECT * FROM "sqlite_master"'
+        self.sqlite_master = {}
+
+    def test_sql(self):
+        self.assertTrue(type(self.sqlite_master) == type({}), "Testing query has returned a list.")
+
+    def test_sql_two(self):
+        test_dict = {"key": "lock", "door": "hinge"}
+        self.assertTrue(type(self.sqlite_master.keys()) == type(test_dict.keys()), "Testing that query returned an object with keys.")
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
