@@ -9,7 +9,7 @@ nbformat==4.4.0
 oauthlib==2.0.6
 plotly==2.2.3
 pytz==2017.3
-requests==2.18.4
+requests==2.20.0
 requests-oauthlib==0.8.0
 six==1.11.0
 traitlets==4.3.2
